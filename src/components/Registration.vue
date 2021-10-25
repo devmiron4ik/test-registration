@@ -27,7 +27,7 @@
         :field="form.phone" />
       <DropDown
         label="Язык"
-        :items="[ 'Русский', 'English' ]"
+        :items="[ 'Русский', 'Английский', 'Китайский', 'Испанский' ]"
         v-model="form.language.value"
         :field="form.language" />
       <CheckBox v-model="form.agree.value">
