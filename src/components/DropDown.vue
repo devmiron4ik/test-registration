@@ -122,6 +122,7 @@ export default {
 
       position: absolute;
       top: 85px;
+      z-index: 8;
 
       width: 100%;
       padding: 12px 0;
