@@ -1,6 +1,6 @@
 <template>
   <label class="checkbox">
-    <input class="checkbox__input" type="checkbox">
+    <input class="checkbox__input" type="checkbox" v-model="modelValue" @change="$emit('update:modelValue', $event.target.checked)">
     <span class="checkbox__custom"></span>
     <span class="checkbox__label"><slot/></span>
   </label>
@@ -8,7 +8,10 @@
 
 <script>
 export default {
-  name: 'CheckBox'
+  name: 'CheckBox',
+  props: {
+    modelValue: Boolean
+  }
 }
 </script>
 

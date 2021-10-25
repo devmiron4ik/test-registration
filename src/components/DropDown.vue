@@ -1,13 +1,22 @@
 <template>
   <div class="dropdown" :data-state="state">
     <span class="dropdown__label" @click="toggleMenu">{{ label }}</span>
-    <div tabindex="0" class="dropdown__title" @click="toggleMenu" ref="title">{{ current }}</div>
+    <div
+      tabindex="0"
+      class="dropdown__title"
+      @click="toggleMenu"
+      @blur="field.blur"
+      ref="title">
+      
+        {{ current }}
+      </div>
     <div class="dropdown__content" ref="options">
       <label v-for="(item,key) in items" :class="[ 'dropdown__option', { 'dropdown__option--active': current === item } ]" @click="setCurrent(item)" :key="key">
         <input class="dropdown__input" type="radio">
         <span>{{ item }}</span>
       </label>
     </div>
+    <small :class="[ 'invalid', { 'invalid--show': !field.valid && field.touched } ]">Введено не корректное значение</small>
   </div>
 </template>
 
@@ -15,6 +24,8 @@
 export default {
   name: 'DropDown',
   props: {
+    field: Object,
+    modelValue: String,
     label: String,
     items: Array
   },
@@ -23,7 +34,7 @@ export default {
     current: ''
   }),
   mounted() {
-    this.current = this.label
+    this.current = this.modelValue || this.label
 
     window.addEventListener('click', this.handleClickWindow)
   },
@@ -39,6 +50,7 @@ export default {
     setCurrent(item) {
       this.current = item
       this.state = ''
+      this.$emit('update:modelValue', item)
     },
     // Close the menu when click to window
     handleClickWindow(e) {
@@ -52,7 +64,7 @@ export default {
   .dropdown {
     position: relative;
     width: 100%;
-    margin-bottom: 31px;
+    margin-bottom: 6px;
 
     &[data-state="active"] {
       .dropdown__title {

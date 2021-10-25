@@ -1,7 +1,14 @@
 <template>
   <label class="textfield">
     <span class="textfield__label">{{ label }}</span>
-    <input class="textfield__input" :type="type" :placeholder="placeholder">
+    <input
+      class="textfield__input"
+      :type="type"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      @blur="field.blur">
+    <small :class="[ 'invalid', { 'invalid--show': !field.valid && field.touched } ]">Введено не корректное значение</small>
   </label>
 </template>
 
@@ -9,6 +16,8 @@
 export default {
   name: 'TextField',
   props: {
+    field: Object,
+    modelValue: String,
     label: String,
     placeholder: String,
     type: {
@@ -22,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 .textfield {
   display: block;
-  margin-bottom: 33px;
+  margin-bottom: 7px;
 
   &__label {
     display: block;

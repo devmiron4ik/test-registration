@@ -44,4 +44,23 @@ a {
   line-height: 22px;
   color: $primary;
 }
+
+.invalid {
+  display: block;
+  margin-top: 8px;
+
+  font-size: 14px;
+  line-height: 18px;
+  color: $error;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all .2s ease-in;
+
+  &--show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 </style>
