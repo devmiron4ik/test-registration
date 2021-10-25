@@ -34,13 +34,13 @@ export default {
   font-size: 16px;
   color: $whiteish2;
 
-  transition: all .2s ease-out;
+  transition: box-shadow .2s ease-out;
   cursor: pointer;
 
   &:hover {
     box-shadow: 0px 12px 24px rgba(44, 39, 56, 0.08), 0px 24px 48px rgba(44, 39, 56, 0.16);
   }
-  &:active {
+  &:active, &:focus {
     border: 2px solid rgba(44, 39, 56, 0.86);
     box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 4px 8px rgba(44, 39, 56, 0.08);
   }
