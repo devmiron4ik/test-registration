@@ -15,7 +15,7 @@ export default {
 <style lang="scss" scoped>
 .checkbox {
   display: inline-block;
-  margin-bottom: 36px;
+  margin-bottom: 39px;
   cursor: pointer;
 
   &__input {

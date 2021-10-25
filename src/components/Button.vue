@@ -44,6 +44,8 @@ export default {
     background: $whiteish1;
     border: 0;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.08);
+    color: $gray1;
+    opacity: .5;
     cursor: default;
   }
 }
