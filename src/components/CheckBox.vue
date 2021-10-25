@@ -17,7 +17,9 @@ export default {
 
 <style lang="scss" scoped>
 .checkbox {
-  display: inline-block;
+  display: inline-flex;
+  align-items: flex-start;
+  
   margin-bottom: 39px;
   cursor: pointer;
 
@@ -33,8 +35,8 @@ export default {
     display: inline-block;
     vertical-align: middle;
 
-    width: 28px;
-    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
 
     border: 1px solid $whiteish1;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
