@@ -47,6 +47,8 @@ export default {
   &__label {
     display: inline-block;
     vertical-align: middle;
+
+    margin-top: 2px;
     margin-left: 8px;
 
     font-weight: 500;

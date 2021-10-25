@@ -1,4 +1,4 @@
-# testapp
+# Test Registration
 
 ## Project setup
 ```

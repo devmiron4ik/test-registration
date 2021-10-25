@@ -1,6 +1,17 @@
 const path = require('path')
 
 module.exports = {
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        '@use': path.resolve(__dirname, 'src/use'),
+        '@scss': path.resolve(__dirname, 'src/scss'),
+        '@assets': path.resolve(__dirname, 'src/assets'),
+        '@components': path.resolve(__dirname, 'src/components')
+      }
+    }
+  },
   css: {
     extract: false,
     loaderOptions: {
@@ -13,15 +24,6 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src'),
-        '@use': path.resolve(__dirname, 'src/use'),
-        '@scss': path.resolve(__dirname, 'src/scss'),
-        '@assets': path.resolve(__dirname, 'src/assets'),
-        '@components': path.resolve(__dirname, 'src/components')
-      }
-    }
-  }
+  productionSourceMap: false,
+  publicPath: ''
 }
